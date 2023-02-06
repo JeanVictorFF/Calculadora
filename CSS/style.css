@@ -46,3 +46,37 @@ body {
     padding: .2em;
     overflow-wrap: break-word;
 }
+
+#buttons-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 3px;
+}
+
+#buttons-container button {
+    border: 1px solid transparent;
+    border-radius: 0;
+    height: 4em;
+    font-size: 1.2em;
+    background-color: #dbdbdb;
+    cursor: pointer;
+}
+
+#buttons-container .number {
+    background-color: #f3f3f3; 
+}
+
+#buttons-container button:hover {
+    background-color: #bababa;
+    border-color: rgb(153, 153, 153);
+}
+
+#buttons-container #equal-btn {
+    grid-column: span 2;
+    background-color: #75a4cb;
+}
+
+#buttons-container #equal-btn:hover {
+    grid-column: span 2;
+    background-color: #3a91d8;
+} 
