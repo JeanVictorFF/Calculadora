@@ -9,15 +9,19 @@ class Calculator {
         this.currentOperation = ""
     } 
     addDigit(digit) {
-        
+        // Verifica se a operação atual já tem um ponto
+        if (digit === "." && this.currentOperationText.innerText.includes(".")) {
+            return;
+        }
+
         this.currentOperation = digit
         this.updateScreen()
     }
-
+    // Processa todas as operações da calculadora
     processOperation(operation) {
-        
+        // Pega o valor atual e anterior
         let operationValue;
-        const previous = +this.previousOperationText.innerText;
+        const previous = +this.previousOperationText.innerText.split(" ");
         const current = +this.currentOperationText.innerText;
 
         switch (operation) {
@@ -46,7 +50,7 @@ class Calculator {
             if(operationValue === null) {
                 this.currentOperationText.innerText += this.currentOperation;
             } else {
-                // verifica se o valor é zero, se for apenas adiciona o valor atual
+                // Verifica se o valor é zero, se for apenas adiciona o valor atual
                 if(previous === 0) {
                     operationValue = current
                 }
