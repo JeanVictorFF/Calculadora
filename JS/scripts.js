@@ -17,13 +17,16 @@ class Calculator {
     processOperation(operation) {
         
         let operationValue;
-        let previous = +this.previousOperationText.innerText;
-        let current = +this.currentOperationText.innerText;
+        const previous = +this.previousOperationText.innerText;
+        const current = +this.currentOperationText.innerText;
 
         switch (operation) {
             case "+": 
             operationValue = previous + current;
             this.updateScreen(operationValue, operation, current, previous);
+                break;
+            default:
+                return;
 
 
 
@@ -39,9 +42,17 @@ class Calculator {
         current = null,
         previous = null
         ) {
-            console.log(operationValue, operation, current, previous);
 
-        this.currentOperationText.innerText += this.currentOperation;
+            if(operationValue === null) {
+                this.currentOperationText.innerText += this.currentOperation;
+            } else {
+                // verifica se o valor é zero, se for apenas adiciona o valor atual
+                if(previous === 0) {
+                    operationValue = current
+                }
+                    this.previousOperationText.innerText = `${operationValue} ${operation}` 
+                    this.currentOperationText.innerText = "";
+            } 
     }
 } 
 
