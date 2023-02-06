@@ -7,4 +7,4 @@ class Calculator {
         this.previousOperationText = previousOperationText
         this.currentOperationText = currentOperationText
         this.currentOperation = ""
-    }
+    }}
