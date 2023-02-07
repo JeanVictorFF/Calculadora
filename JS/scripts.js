@@ -50,7 +50,6 @@ class Calculator {
                 this.updateScreen(operationValue, operation, current, previous);
                 break;
             case "DEL": 
-                
                 this.processDelOperator();
                 break;        
             default:
