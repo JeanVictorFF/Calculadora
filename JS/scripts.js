@@ -48,7 +48,11 @@ class Calculator {
             case "*": 
                 operationValue = previous * current;
                 this.updateScreen(operationValue, operation, current, previous);
-                break;    
+                break;
+            case "DEL": 
+                
+                this.processDelOperator();
+                break;        
             default:
                 return;
                        
@@ -87,6 +91,11 @@ class Calculator {
         this.previousOperationText.innerText = this.previousOperationText.innerText.slice(0, -1) + operation;
 
     }
+    // Deletar o último dígito
+    processDelOperator() {
+        this.currentOperationText.innerText = this.currentOperationText.innerText.slice(0, -1)
+    }
+
 } 
 
 const calc = new Calculator(previousOperationText, currentOperationText);
