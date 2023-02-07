@@ -54,7 +54,7 @@ class Calculator {
                 break;        
             default:
                 return;
-                       
+                        
         }
 
     }
