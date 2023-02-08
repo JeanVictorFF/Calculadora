@@ -17,7 +17,7 @@ body {
     width: 400px;
     padding: .5em;
     background-color: #c4c4c4;
-    color: #000;
+    color: black;
     display: flex;
     flex-direction: column;
 }
