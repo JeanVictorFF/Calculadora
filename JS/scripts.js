@@ -45,7 +45,7 @@ class Calculator {
                 operationValue = previous / current;
                 this.updateScreen(operationValue, operation, current, previous);
                 break;
-            case "*":
+            case "X":
                 operationValue = previous * current;
                 this.updateScreen(operationValue, operation, current, previous);
                 break;
