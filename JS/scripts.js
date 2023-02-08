@@ -58,6 +58,9 @@ class Calculator {
             case "C":
                 this.processClearAllOperation();
                 break;
+            case "=":
+                this.processEqualOperator();
+                    break;    
             default:
                 return;
 
@@ -110,6 +113,11 @@ class Calculator {
     processClearAllOperation() {
         this.currentOperationText.innerText = "";
         this.previousOperationText.innerText = "";
+    }
+
+    processEqualOperator() {
+        const operation = previousOperationText.innerText.split(" ")[1];
+        this.processOperation(operation);
     }
 }
 
