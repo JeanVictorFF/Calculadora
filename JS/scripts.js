@@ -51,7 +51,13 @@ class Calculator {
                 break;
             case "DEL": 
                 this.processDelOperator();
-                break;        
+                break;
+            case "CE": 
+                this.processClearCurrentOperation();
+                break;
+            case "C": 
+                this.processClearAllOperation();
+                break;                
             default:
                 return;
 
@@ -95,6 +101,16 @@ class Calculator {
         this.currentOperationText.innerText = this.currentOperationText.innerText.slice(0, -1)
     }
 
+    // Limpa operação atual
+    processClearCurrentOperation() {
+        this.currentOperationText.innerText = "";
+    }
+
+    // Limpa todas as operações
+    processClearAllOperation() {
+        this.currentOperationText.innerText = "";
+        this.previousOperationText.innerText = "";
+    }
 } 
 
 const calc = new Calculator(previousOperationText, currentOperationText);
