@@ -7,7 +7,7 @@ class Calculator {
         this.previousOperationText = previousOperationText
         this.currentOperationText = currentOperationText
         this.currentOperation = ""
-    } 
+    }
     addDigit(digit) {
         // Verifica se a operação atual já tem um ponto
         if (digit === "." && this.currentOperationText.innerText.includes(".")) {
@@ -20,9 +20,9 @@ class Calculator {
     // Processa todas as operações da calculadora
     processOperation(operation) {
         // Checa se o valor atual está vazio  
-        if(this.currentOperationText.innerText === "") {
+        if (this.currentOperationText.innerText === "") {
             // Mudança de operação
-            if(this.previousOperationText.innerText !== "") {
+            if (this.previousOperationText.innerText !== "") {
                 this.changeOperation(operation);
             }
             return;
@@ -33,31 +33,31 @@ class Calculator {
         const current = +this.currentOperationText.innerText;
 
         switch (operation) {
-            case "+": 
+            case "+":
                 operationValue = previous + current;
                 this.updateScreen(operationValue, operation, current, previous);
                 break;
-            case "-": 
+            case "-":
                 operationValue = previous - current;
                 this.updateScreen(operationValue, operation, current, previous);
                 break;
-            case "/": 
+            case "/":
                 operationValue = previous / current;
                 this.updateScreen(operationValue, operation, current, previous);
-                break; 
-            case "*": 
+                break;
+            case "*":
                 operationValue = previous * current;
                 this.updateScreen(operationValue, operation, current, previous);
                 break;
-            case "DEL": 
+            case "DEL":
                 this.processDelOperator();
                 break;
-            case "CE": 
+            case "CE":
                 this.processClearCurrentOperation();
                 break;
-            case "C": 
+            case "C":
                 this.processClearAllOperation();
-                break;                
+                break;
             default:
                 return;
 
@@ -70,26 +70,26 @@ class Calculator {
         operation = null,
         current = null,
         previous = null
-        ) {
+    ) {
 
-            if(operationValue === null) {
-                this.currentOperationText.innerText += this.currentOperation;
-            } else {
-                // Verifica se o valor é zero, se for apenas adiciona o valor atual
-                if(previous === 0) {
-                    operationValue = current
-                }
-                    this.previousOperationText.innerText = `${operationValue} ${operation}`; 
-                    this.currentOperationText.innerText = "";
-            } 
+        if (operationValue === null) {
+            this.currentOperationText.innerText += this.currentOperation;
+        } else {
+            // Verifica se o valor é zero, se for apenas adiciona o valor atual
+            if (previous === 0) {
+                operationValue = current
+            }
+            this.previousOperationText.innerText = `${operationValue} ${operation}`;
+            this.currentOperationText.innerText = "";
+        }
     }
 
     // Altera a operação matemática
-    changeOperation(operation){
+    changeOperation(operation) {
 
         const mathOperations = ["*", "/", "+", "-"]
 
-        if(!mathOperations.includes(operation)) {
+        if (!mathOperations.includes(operation)) {
             return;
         }
 
@@ -111,7 +111,7 @@ class Calculator {
         this.currentOperationText.innerText = "";
         this.previousOperationText.innerText = "";
     }
-} 
+}
 
 const calc = new Calculator(previousOperationText, currentOperationText);
 
@@ -119,7 +119,7 @@ buttons.forEach((btn) => {
     btn.addEventListener("click", (e) => {
         const value = e.target.innerText;
 
-        if(+value >= 0 || value === ".") {
+        if (+value >= 0 || value === ".") {
             calc.addDigit(value);
         } else {
             calc.processOperation(value);

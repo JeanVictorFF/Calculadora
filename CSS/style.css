@@ -1,4 +1,4 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -35,7 +35,7 @@ body {
 #previous-operation {
     color: #777;
     padding: 0.2em;
-    overflow-wrap:break-word;
+    overflow-wrap: break-word;
     min-height: 1.6em;
 }
 
@@ -63,7 +63,7 @@ body {
 }
 
 #buttons-container .number {
-    background-color: #f3f3f3; 
+    background-color: #f3f3f3;
 }
 
 #buttons-container button:hover {
@@ -79,4 +79,4 @@ body {
 #buttons-container #equal-btn:hover {
     grid-column: span 2;
     background-color: #3a91d8;
-} 
+}
